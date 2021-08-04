@@ -13,9 +13,26 @@ class MKMainViewController: UIViewController {
     
     var data = FillingData.data
     
+    lazy var sections: Array<Array<ContentType>> = {
+        var array = Array<Array<ContentType>>()
+        var subArray = Array<ContentType>()
+        
+        subArray.append(data[0])
+        for i in 0..<7 {
+            subArray.append(data[i+1])
+            
+            if subArray.count == 2 {
+                array.append(subArray)
+                subArray.removeAll()
+            }
+        }
+        
+        return array
+    }()
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 50, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         layout.minimumInteritemSpacing = 16
         layout.minimumLineSpacing = 30
         
@@ -23,6 +40,7 @@ class MKMainViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.register(MKCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         view.backgroundColor = .white
+        view.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 30, right: 20)
         
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
@@ -56,13 +74,17 @@ class MKMainViewController: UIViewController {
 
 extension MKMainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return 2
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MKCollectionViewCell
         
-        switch data[indexPath.row] {
+        switch sections[indexPath.section][indexPath.row] {
         case .story(let item):
             cell.image = item.coverImage
             cell.nameText = item.title

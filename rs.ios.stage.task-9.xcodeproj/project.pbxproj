@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0E9CB126BB21F6001DE8B5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB026BB21F6001DE8B5 /* PaddingLabel.swift */; };
+		FA0E9CB326BB2F16001DE8B5 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB226BB2F16001DE8B5 /* TypeView.swift */; };
 		FA26BB6126B59C8400FD405C /* MKItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26BB6026B59C8400FD405C /* MKItemViewController.swift */; };
 		FAD1000526B5F19800FA3653 /* MKDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000426B5F19800FA3653 /* MKDrawingView.swift */; };
 		FAD1000726B5F28C00FA3653 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0E9CB026BB21F6001DE8B5 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FA0E9CB226BB2F16001DE8B5 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
 		FA26BB6026B59C8400FD405C /* MKItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKItemViewController.swift; sourceTree = "<group>"; };
 		FAD1000426B5F19800FA3653 /* MKDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDrawingView.swift; sourceTree = "<group>"; };
 		FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD1000A26B726A400FA3653 /* Data */,
+				FA0E9CB026BB21F6001DE8B5 /* PaddingLabel.swift */,
+				FA0E9CB226BB2F16001DE8B5 /* TypeView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0E9CB326BB2F16001DE8B5 /* TypeView.swift in Sources */,
 				FAD1000726B5F28C00FA3653 /* MKCollectionViewCell.swift in Sources */,
 				FAD1002026B726A500FA3653 /* story-3-path.swift in Sources */,
 				FAEEED3E26B493C60035C49B /* MKMainViewController.swift in Sources */,
@@ -287,6 +294,7 @@
 				FAD1002B26B9C2CB00FA3653 /* MKGalleryView.swift in Sources */,
 				FAEEED2926B493390035C49B /* AppDelegate.swift in Sources */,
 				FAEEED4226B4946A0035C49B /* MKSettingsTableViewController.swift in Sources */,
+				FA0E9CB126BB21F6001DE8B5 /* PaddingLabel.swift in Sources */,
 				FAEEED2B26B493390035C49B /* SceneDelegate.swift in Sources */,
 				FAD1000526B5F19800FA3653 /* MKDrawingView.swift in Sources */,
 				FAD1001D26B726A500FA3653 /* Data.swift in Sources */,

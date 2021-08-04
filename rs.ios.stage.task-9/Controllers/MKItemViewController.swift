@@ -24,7 +24,6 @@ class MKItemViewController: UIViewController {
     
     var contentView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
@@ -69,12 +68,12 @@ class MKItemViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 20
         
-        button.imageView?.image = UIImage(systemName: "xmark")
-        button.imageView?.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
-        button.imageView?.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        if let image = UIImage(named: "xmark-2.png") {
+            button.setImage(image, for: .normal)
+        }
+        if let image = UIImage(named: "xmark-3.png") {
+            button.setImage(image, for: .highlighted)
+        }
         
         return button
     }()
@@ -114,11 +113,12 @@ class MKItemViewController: UIViewController {
         self.configureButton()
         self.configureCover()
         self.configureGalleryCollectionView()
+        self.configureScrollView()
     }
     
     func configureButton() {
-        //        self.scrollView.subviews.first!.addSubview(self.closeButton)
         self.contentView.addSubview(self.closeButton)
+        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.closeButton.addTarget(self, action: #selector(closeView(sender:)), for: .touchUpInside)
         
@@ -132,7 +132,6 @@ class MKItemViewController: UIViewController {
     func configureCover() {
         //image
         self.imageView.image = self.image
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
         self.imageView.contentMode = .scaleAspectFill
         self.imageView.clipsToBounds = true
         self.imageView.layer.borderColor = UIColor.white.cgColor
@@ -141,27 +140,26 @@ class MKItemViewController: UIViewController {
         
         let layer0 = CAGradientLayer()
         layer0.colors = [
-            UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-            UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+          UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
+          UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         ]
         layer0.locations = [0.51, 1]
         layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
-        layer0.endPoint = CGPoint(x: 0.85, y: 0.5)
+        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
         layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        layer0.bounds = self.imageView.bounds.insetBy(dx: -0.5*self.imageView.bounds.size.width, dy: -0.5*self.imageView.bounds.size.height)
-        layer0.position = self.imageView.center
+        layer0.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
+        layer0.position = view.center
+        imageView.layer.addSublayer(layer0)
         
-        self.imageView.layer.addSublayer(layer0)
-        
-        //        self.scrollView.subviews.first!.addSubview(imageView)
         self.contentView.addSubview(self.imageView)
         
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.imageView.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor, constant: 30),
             self.imageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             
             self.imageView.widthAnchor.constraint(equalToConstant: 374),
-            self.self.imageView.heightAnchor.constraint(equalToConstant: 500)
+            self.imageView.heightAnchor.constraint(equalToConstant: 500)
         ])
         
         //text
@@ -170,6 +168,7 @@ class MKItemViewController: UIViewController {
         textView.font = UIFont(name: "Rockwell-Regular", size: 48)
         textView.numberOfLines = 0
         textView.lineBreakMode = .byWordWrapping
+        textView.sizeToFit()
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.2
@@ -187,102 +186,95 @@ class MKItemViewController: UIViewController {
         textView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55).isActive = true
         
         //Type label
-        let typeView = UILabel()
+        let typeView = TypeView()
+        typeView.translatesAutoresizingMaskIntoConstraints = false
+        typeView.layer.borderColor = UIColor.white.cgColor
+        typeView.layer.borderWidth = 1
+        typeView.layer.cornerRadius = 8
+        typeView.textAlignment = .center
+        typeView.textColor = .white
+        typeView.font = UIFont.init(name: "Rockwell", size: 24)
         typeView.backgroundColor = .black
         typeView.clipsToBounds = true
-        typeView.layer.cornerRadius = 8
-        typeView.layer.borderWidth = 1
-        typeView.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        typeView.text = self.typeText
         
         let typeTextLabel = UILabel(frame: .zero)
         typeTextLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         typeTextLabel.font = UIFont(name: "Rockwell-Regular", size: 24)
         typeTextLabel.text = self.typeText
-        
-        typeView.addSubview(typeTextLabel)
-        
-        typeTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        typeTextLabel.heightAnchor.constraint(equalToConstant: 29).isActive = true
-        typeTextLabel.leadingAnchor.constraint(equalTo: typeView.leadingAnchor, constant: 30).isActive = true
-        typeTextLabel.topAnchor.constraint(equalTo: typeView.topAnchor, constant: 8).isActive = true
-        typeTextLabel.trailingAnchor.constraint(equalTo: typeView.trailingAnchor, constant: -30).isActive = true
-        
-        //        self.scrollView.subviews.first!.addSubview(typeView)
-        //        self.scrollView.subviews.first!.bringSubviewToFront(typeView)
+
         self.contentView.addSubview(typeView)
         
-        typeView.translatesAutoresizingMaskIntoConstraints = false
-        typeView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 479).isActive = true
-        typeView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
-        typeView.widthAnchor.constraint(equalToConstant: 122).isActive = true
-        typeView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        NSLayoutConstraint.activate([
+            typeView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            typeView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            typeView.heightAnchor.constraint(equalToConstant: 40)
+        ])
         
         //lineVIew
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.frame = CGRect(x: 100, y: 658, width: 214, height: 0)
-        view.backgroundColor = .white
+        let lineView = UIView()
+        lineView.backgroundColor = .white
+        self.contentView.addSubview(lineView)
         
-        //        NSLayoutConstraint.activate([
-        //            view.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 658),
-        //            view.centerXAnchor.constraint(equalTo: imageView.centerXAnchor)
-        //        ])
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lineView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 58),
+            lineView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            lineView.widthAnchor.constraint(equalToConstant: 214),
+            lineView.heightAnchor.constraint(equalToConstant: 1)
+        ])
     }
     
     func configureTextView() {
-        let textView = UILabel(frame: .zero)
+        let textView = PaddingLabel(frame: .zero)
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.white.cgColor
         textView.layer.cornerRadius = 8
         
-        let text = UILabel(frame: .zero)
-        text.textColor = .white
-        text.font = UIFont(name: "Rockwell-Regular", size: 24)
-        text.numberOfLines = 0
-        text.lineBreakMode = .byWordWrapping
+        textView.textColor = .white
+        textView.font = UIFont(name: "Rockwell-Regular", size: 24)
+        textView.numberOfLines = 0
+        textView.lineBreakMode = .byWordWrapping
         
         let paragraphStyle = NSMutableParagraphStyle()
+        
         paragraphStyle.lineHeightMultiple = 1.2
-        text.attributedText = NSAttributedString(string: self.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        textView.attributedText = NSAttributedString(string: self.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
-        textView.addSubview(text)
-        
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.widthAnchor.constraint(equalToConstant: 304).isActive = true
-        text.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: 30).isActive = true
-        text.topAnchor.constraint(equalTo: textView.topAnchor, constant: 30).isActive = true
-        
-        //        self.scrollView.subviews.first!.addSubview(textView)
         self.contentView.addSubview(textView)
         
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.widthAnchor.constraint(equalToConstant: 374).isActive = true
-        textView.heightAnchor.constraint(equalToConstant: 727).isActive = true
         textView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20).isActive = true
+        textView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20).isActive = true
         textView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 838).isActive = true
-//        textView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
+        textView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -30).isActive = true
     }
     
     func configureScrollView() {
         let scrollView = UIScrollView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(scrollView)
+        scrollView.addSubview(self.contentView)
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
         
-        scrollView.addSubview(self.contentView)
-        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor)
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+
         ])
+        
+//        scrollView.contentSize = contentView.frame.size
     }
     
     func configureGalleryCollectionView() {
@@ -295,23 +287,22 @@ class MKItemViewController: UIViewController {
         self.galleryCollectionView.dataSource = self
         
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 698),
-            self.collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
-            self.collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
-            self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -20)
+            galleryCollectionView.topAnchor.constraint(equalTo: self.imageView.topAnchor, constant: 98),
+            galleryCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            galleryCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
+            galleryCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -70)  
         ])
     }
     
     func configureCollectionView() {
-        //        self.scrollView.subviews.first!.addSubview(collectionView)
         self.contentView.addSubview(collectionView)
-        self.collectionView.backgroundColor = .red
+        self.collectionView.backgroundColor = .black
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 716),
+            self.collectionView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 96.675),
             self.collectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 36),
             self.collectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -34),
             self.collectionView.heightAnchor.constraint(equalToConstant: 100)
@@ -341,6 +332,9 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
         if collectionView.isEqual(self.collectionView) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "drawingCell", for: indexPath) as! MKDrawingView
             cell.currentDrawing = indexPath.row
+            cell.paths = self.paths!
+            cell.duration = self.currentDuration
+            cell.currentColor = .red
             cell.delegate = self.parent as? MKMainViewController
             
             return cell
