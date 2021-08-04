@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		FA0E9CB126BB21F6001DE8B5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB026BB21F6001DE8B5 /* PaddingLabel.swift */; };
 		FA0E9CB326BB2F16001DE8B5 /* TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB226BB2F16001DE8B5 /* TypeView.swift */; };
+		FA0E9CB726BB37DC001DE8B5 /* story-5-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB626BB37DC001DE8B5 /* story-5-path.swift */; };
+		FA0E9CB926BB38AF001DE8B5 /* story-6-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E9CB826BB38AF001DE8B5 /* story-6-path.swift */; };
+		FA0E9CBB26BB3959001DE8B5 /* s6-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBA26BB3959001DE8B5 /* s6-text.txt */; };
+		FA0E9CBD26BB3966001DE8B5 /* s6-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBC26BB3966001DE8B5 /* s6-title.txt */; };
+		FA0E9CBF26BB397C001DE8B5 /* s5-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */; };
+		FA0E9CC126BB3989001DE8B5 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CC026BB3989001DE8B5 /* s5-title.txt */; };
 		FA26BB6126B59C8400FD405C /* MKItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26BB6026B59C8400FD405C /* MKItemViewController.swift */; };
 		FAD1000526B5F19800FA3653 /* MKDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000426B5F19800FA3653 /* MKDrawingView.swift */; };
 		FAD1000726B5F28C00FA3653 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */; };
@@ -38,6 +44,12 @@
 /* Begin PBXFileReference section */
 		FA0E9CB026BB21F6001DE8B5 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FA0E9CB226BB2F16001DE8B5 /* TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeView.swift; sourceTree = "<group>"; };
+		FA0E9CB626BB37DC001DE8B5 /* story-5-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-5-path.swift"; sourceTree = "<group>"; };
+		FA0E9CB826BB38AF001DE8B5 /* story-6-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-6-path.swift"; sourceTree = "<group>"; };
+		FA0E9CBA26BB3959001DE8B5 /* s6-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s6-text.txt"; sourceTree = "<group>"; };
+		FA0E9CBC26BB3966001DE8B5 /* s6-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s6-title.txt"; sourceTree = "<group>"; };
+		FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s5-text.txt"; sourceTree = "<group>"; };
+		FA0E9CC026BB3989001DE8B5 /* s5-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s5-title.txt"; path = "../../../../../../Desktop/s5-title.txt"; sourceTree = "<group>"; };
 		FA26BB6026B59C8400FD405C /* MKItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKItemViewController.swift; sourceTree = "<group>"; };
 		FAD1000426B5F19800FA3653 /* MKDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDrawingView.swift; sourceTree = "<group>"; };
 		FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +89,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0E9CB426BB36AB001DE8B5 /* story-5 */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E9CB626BB37DC001DE8B5 /* story-5-path.swift */,
+				FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */,
+				FA0E9CC026BB3989001DE8B5 /* s5-title.txt */,
+			);
+			path = "story-5";
+			sourceTree = "<group>";
+		};
+		FA0E9CB526BB36B1001DE8B5 /* story-6 */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E9CB826BB38AF001DE8B5 /* story-6-path.swift */,
+				FA0E9CBA26BB3959001DE8B5 /* s6-text.txt */,
+				FA0E9CBC26BB3966001DE8B5 /* s6-title.txt */,
+			);
+			path = "story-6";
+			sourceTree = "<group>";
+		};
 		FAD1000A26B726A400FA3653 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +121,12 @@
 		FAD1000C26B726A400FA3653 /* Static */ = {
 			isa = PBXGroup;
 			children = (
-				FAD1000D26B726A400FA3653 /* story-3 */,
-				FAD1001126B726A500FA3653 /* story-4 */,
 				FAD1001526B726A500FA3653 /* story-2 */,
 				FAD1001926B726A500FA3653 /* story-1 */,
+				FA0E9CB526BB36B1001DE8B5 /* story-6 */,
+				FA0E9CB426BB36AB001DE8B5 /* story-5 */,
+				FAD1000D26B726A400FA3653 /* story-3 */,
+				FAD1001126B726A500FA3653 /* story-4 */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -131,8 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD1001A26B726A500FA3653 /* s1-text.txt */,
-				FAD1001B26B726A500FA3653 /* story-1-path.swift */,
 				FAD1001C26B726A500FA3653 /* s1-title.txt */,
+				FAD1001B26B726A500FA3653 /* story-1-path.swift */,
 			);
 			path = "story-1";
 			sourceTree = "<group>";
@@ -268,10 +302,14 @@
 				FAD1001E26B726A500FA3653 /* s3-text.txt in Resources */,
 				FAD1002226B726A500FA3653 /* s4-text.txt in Resources */,
 				FAD1001F26B726A500FA3653 /* s3-title.txt in Resources */,
+				FA0E9CBD26BB3966001DE8B5 /* s6-title.txt in Resources */,
 				FAEEED3226B4933E0035C49B /* Preview Assets.xcassets in Resources */,
 				FAD1002126B726A500FA3653 /* s4-title.txt in Resources */,
 				FAD1002526B726A500FA3653 /* s2-text.txt in Resources */,
 				FAD1002426B726A500FA3653 /* s2-title.txt in Resources */,
+				FA0E9CC126BB3989001DE8B5 /* s5-title.txt in Resources */,
+				FA0E9CBF26BB397C001DE8B5 /* s5-text.txt in Resources */,
+				FA0E9CBB26BB3959001DE8B5 /* s6-text.txt in Resources */,
 				FAEEED2F26B4933E0035C49B /* Assets.xcassets in Resources */,
 				FAD1002726B726A500FA3653 /* s1-text.txt in Resources */,
 				FAD1002926B726A500FA3653 /* s1-title.txt in Resources */,
@@ -286,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA0E9CB326BB2F16001DE8B5 /* TypeView.swift in Sources */,
+				FA0E9CB926BB38AF001DE8B5 /* story-6-path.swift in Sources */,
 				FAD1000726B5F28C00FA3653 /* MKCollectionViewCell.swift in Sources */,
 				FAD1002026B726A500FA3653 /* story-3-path.swift in Sources */,
 				FAEEED3E26B493C60035C49B /* MKMainViewController.swift in Sources */,
@@ -295,6 +334,7 @@
 				FAEEED2926B493390035C49B /* AppDelegate.swift in Sources */,
 				FAEEED4226B4946A0035C49B /* MKSettingsTableViewController.swift in Sources */,
 				FA0E9CB126BB21F6001DE8B5 /* PaddingLabel.swift in Sources */,
+				FA0E9CB726BB37DC001DE8B5 /* story-5-path.swift in Sources */,
 				FAEEED2B26B493390035C49B /* SceneDelegate.swift in Sources */,
 				FAD1000526B5F19800FA3653 /* MKDrawingView.swift in Sources */,
 				FAD1001D26B726A500FA3653 /* Data.swift in Sources */,

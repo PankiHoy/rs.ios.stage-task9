@@ -53,6 +53,8 @@ class MKDrawingView: UICollectionViewCell {
         pathAnimation.fromValue = 0.0
         pathAnimation.toValue = 1.0
         pathAnimation.autoreverses = false;
+        
+        layer.add(pathAnimation, forKey: "strokeEndAnimation")
         layer.strokeEnd = 1.0
     }
 }

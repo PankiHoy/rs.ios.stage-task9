@@ -47,14 +47,15 @@ class MKItemViewController: UIViewController {
     
     lazy var galleryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 20
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.register(MKGalleryView.self, forCellWithReuseIdentifier: "galleryCell")
         view.backgroundColor = .white
+        //        view.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 30, right: 20)
         
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
@@ -138,18 +139,12 @@ class MKItemViewController: UIViewController {
         self.imageView.layer.borderWidth = 1
         self.imageView.layer.cornerRadius = 10
         
-        let layer0 = CAGradientLayer()
-        layer0.colors = [
-          UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-          UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-        ]
-        layer0.locations = [0.51, 1]
-        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
-        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
-        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        layer0.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
-        layer0.position = view.center
-        imageView.layer.addSublayer(layer0)
+        let layer = CAGradientLayer()
+        layer.frame = self.imageView.bounds
+        layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        layer.locations = [0.7, 1.0]
+        
+        self.imageView.layer.addSublayer(layer)
         
         self.contentView.addSubview(self.imageView)
         
@@ -202,7 +197,7 @@ class MKItemViewController: UIViewController {
         typeTextLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         typeTextLabel.font = UIFont(name: "Rockwell-Regular", size: 24)
         typeTextLabel.text = self.typeText
-
+        
         self.contentView.addSubview(typeView)
         
         NSLayoutConstraint.activate([
@@ -226,27 +221,39 @@ class MKItemViewController: UIViewController {
     }
     
     func configureTextView() {
-        let textView = PaddingLabel(frame: .zero)
+        let textView = UILabel(frame: .zero) //PaddingLabel(frame: .zero)
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.white.cgColor
         textView.layer.cornerRadius = 8
         
-        textView.textColor = .white
-        textView.font = UIFont(name: "Rockwell-Regular", size: 24)
-        textView.numberOfLines = 0
-        textView.lineBreakMode = .byWordWrapping
+        let label = UILabel()
+        label.text = self.text
+        label.textColor = .white
+        label.font = UIFont(name: "Rockwell-Regular", size: 24)
+        label.numberOfLines = 0
         
-        let paragraphStyle = NSMutableParagraphStyle()
+        textView.addSubview(label)
         
-        paragraphStyle.lineHeightMultiple = 1.2
-        textView.attributedText = NSAttributedString(string: self.text!, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.bottomAnchor.constraint(equalTo: textView.bottomAnchor, constant: -30),
+            label.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: 30),
+            label.trailingAnchor.constraint(equalTo: textView.trailingAnchor, constant: -40),
+            label.topAnchor.constraint(equalTo: textView.topAnchor, constant: 30)
+        ])
+//
+//        textView.textColor = .white
+//        textView.font = UIFont(name: "Rockwell-Regular", size: 24)
+//        textView.numberOfLines = 0
+        
+//        textView.text = self.text!
         
         self.contentView.addSubview(textView)
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20).isActive = true
         textView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20).isActive = true
-        textView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 838).isActive = true
+        textView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 238).isActive = true
         textView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -30).isActive = true
     }
     
@@ -271,15 +278,15 @@ class MKItemViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-
+            
         ])
         
-//        scrollView.contentSize = contentView.frame.size
+        //        scrollView.contentSize = contentView.frame.size
     }
     
     func configureGalleryCollectionView() {
         self.contentView.addSubview(galleryCollectionView)
-        self.galleryCollectionView.backgroundColor = .red
+        self.galleryCollectionView.backgroundColor = .black
         
         self.galleryCollectionView.isScrollEnabled = false
         
@@ -287,10 +294,11 @@ class MKItemViewController: UIViewController {
         self.galleryCollectionView.dataSource = self
         
         NSLayoutConstraint.activate([
-            galleryCollectionView.topAnchor.constraint(equalTo: self.imageView.topAnchor, constant: 98),
-            galleryCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
-            galleryCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
-            galleryCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -70)  
+            galleryCollectionView.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 98),
+            galleryCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            galleryCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            galleryCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -30),
+            galleryCollectionView.heightAnchor.constraint(equalToConstant: 520 * CGFloat(self.images!.count))
         ])
     }
     
@@ -314,8 +322,6 @@ class MKItemViewController: UIViewController {
         self.view.removeFromSuperview()
         self.removeFromParent()
     }
-    
-    
 }
 
 //MARK: Collection view stuff
@@ -341,6 +347,7 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! MKGalleryView
             cell.image = images![indexPath.row]
+            cell.configureImageCell()
             
             return cell
         }
@@ -354,4 +361,18 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
+        } else {
+            print("portrait")
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.imageView.layer.sublayers![0].frame = self.imageView.bounds
+    }
 }
+
+

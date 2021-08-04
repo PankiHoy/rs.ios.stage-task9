@@ -11,11 +11,6 @@ class MKGalleryView: UICollectionViewCell {
     
     var image: UIImage?
 
-    override func didMoveToSuperview() {
-        self.didMoveToSuperview()
-        self.configureImageCell()
-    }
-    
     func configureImageCell() {
         let imageView = UIImageView()
         imageView.image = image

@@ -17,6 +17,8 @@ class MKCollectionViewCell: UICollectionViewCell {
     
     var drawingPath: Array<CGPath>?
     var images: Array<UIImage>?
+    
+    var imageView: UIImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +38,7 @@ class MKCollectionViewCell: UICollectionViewCell {
         
         self.frame.size = CGSize(width: 179, height: 220)
         
-        let imageView = UIImageView(frame: CGRect(x: 8, y: 10, width: 163, height: 200))
+        self.imageView = UIImageView(frame: CGRect(x: 8, y: 10, width: 163, height: 200))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -46,19 +48,12 @@ class MKCollectionViewCell: UICollectionViewCell {
         
         imageView.image = image
         
-        let layer0 = CAGradientLayer()
-        layer0.colors = [
-          UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor,
-          UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-        ]
-        layer0.locations = [0.74, 1]
-        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
-        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
-        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        layer0.bounds = imageView.bounds.insetBy(dx: -0.5*imageView.bounds.size.width, dy: -0.5*imageView.bounds.size.height)
-        layer0.position = imageView.center
+        let layer = CAGradientLayer()
+        layer.frame = imageView.bounds
+        layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        layer.locations = [0.7, 1.0]
         
-        imageView.layer.addSublayer(layer0)
+        imageView.layer.addSublayer(layer)
         
         let nameTextView = UILabel()
         nameTextView.frame = CGRect(x: 10, y: 151, width: 138, height: 19)
@@ -135,6 +130,4 @@ class MKCollectionViewCell: UICollectionViewCell {
         
         self.addSubview(button)
     }
-    
-    
 }

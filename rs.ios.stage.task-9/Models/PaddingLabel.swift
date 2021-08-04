@@ -16,7 +16,7 @@ class PaddingLabel: UILabel {
     
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
-        return CGSize(width: size.width + 30 + 30, height: size.height + 30 + 30)
+        return CGSize(width: size.width + 60, height: size.height + 60)
     }
     
 }

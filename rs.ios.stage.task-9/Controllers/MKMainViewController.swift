@@ -18,7 +18,7 @@ class MKMainViewController: UIViewController {
         var subArray = Array<ContentType>()
         
         subArray.append(data[0])
-        for i in 0..<7 {
+        for i in 0..<data.count-1 {
             subArray.append(data[i+1])
             
             if subArray.count == 2 {
@@ -68,7 +68,6 @@ class MKMainViewController: UIViewController {
         self.collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         self.collectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         self.collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        
     }
 }
 
@@ -108,6 +107,14 @@ extension MKMainViewController: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 179, height: 220)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+//            self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
+        } else {
+            print("portrait")
+        }
     }
 }
 

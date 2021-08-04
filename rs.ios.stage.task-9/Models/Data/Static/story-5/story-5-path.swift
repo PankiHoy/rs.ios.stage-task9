@@ -1,8 +1,45 @@
-//
-//  story-5-path.swift
-//  rs.ios.stage.task-9
-//
-//  Created by dev on 4.08.21.
-//
+import UIKit
 
-import Foundation
+extension CGPath {
+    static let story5path1: CGPath = {
+        let shape = UIBezierPath()
+        shape.move(to: CGPoint(x: 15.57, y: 74.98))
+        shape.addCurve(to: CGPoint(x: 11.86, y: 74.01), controlPoint1: CGPoint(x: 14, y: 74.8), controlPoint2: CGPoint(x: 12.82, y: 74.49))
+        shape.addCurve(to: CGPoint(x: 10.35, y: 72.98), controlPoint1: CGPoint(x: 11.45, y: 73.79), controlPoint2: CGPoint(x: 10.69, y: 73.28))
+        shape.addCurve(to: CGPoint(x: 1.79, y: 64.44), controlPoint1: CGPoint(x: 9.69, y: 72.4), controlPoint2: CGPoint(x: 2.07, y: 64.79))
+        shape.addCurve(to: CGPoint(x: 0.13, y: 60.47), controlPoint1: CGPoint(x: 0.97, y: 63.4), controlPoint2: CGPoint(x: 0.43, y: 62.11))
+        shape.addCurve(to: CGPoint(x: 0.11, y: 56.15), controlPoint1: CGPoint(x: -0.03, y: 59.55), controlPoint2: CGPoint(x: -0.05, y: 57.29))
+        shape.addCurve(to: CGPoint(x: 3.56, y: 45.4), controlPoint1: CGPoint(x: 0.57, y: 52.77), controlPoint2: CGPoint(x: 1.63, y: 49.46))
+        shape.addCurve(to: CGPoint(x: 25.27, y: 17.55), controlPoint1: CGPoint(x: 7.86, y: 36.33), controlPoint2: CGPoint(x: 15.84, y: 26.09))
+        shape.addCurve(to: CGPoint(x: 53.25, y: 0.67), controlPoint1: CGPoint(x: 34.92, y: 8.8), controlPoint2: CGPoint(x: 45.03, y: 2.71))
+        shape.addCurve(to: CGPoint(x: 62.94, y: 0.91), controlPoint1: CGPoint(x: 57.18, y: -0.3), controlPoint2: CGPoint(x: 60.48, y: -0.22))
+        shape.addCurve(to: CGPoint(x: 66.38, y: 3.7), controlPoint1: CGPoint(x: 63.93, y: 1.36), controlPoint2: CGPoint(x: 64.44, y: 1.78))
+        shape.addCurve(to: CGPoint(x: 73.06, y: 10.36), controlPoint1: CGPoint(x: 70.53, y: 7.79), controlPoint2: CGPoint(x: 72.79, y: 10.06))
+        shape.addCurve(to: CGPoint(x: 74.87, y: 14.43), controlPoint1: CGPoint(x: 73.93, y: 11.36), controlPoint2: CGPoint(x: 74.55, y: 12.76))
+        shape.addCurve(to: CGPoint(x: 75, y: 16.67), controlPoint1: CGPoint(x: 74.99, y: 15.08), controlPoint2: CGPoint(x: 75, y: 15.34))
+        shape.addCurve(to: CGPoint(x: 74.68, y: 20.23), controlPoint1: CGPoint(x: 74.99, y: 18.22), controlPoint2: CGPoint(x: 74.95, y: 18.78))
+        shape.addCurve(to: CGPoint(x: 67.53, y: 36.61), controlPoint1: CGPoint(x: 73.81, y: 24.9), controlPoint2: CGPoint(x: 71.26, y: 30.74))
+        shape.addCurve(to: CGPoint(x: 49.55, y: 57.6), controlPoint1: CGPoint(x: 62.95, y: 43.82), controlPoint2: CGPoint(x: 56.79, y: 51.02))
+        shape.addCurve(to: CGPoint(x: 30.99, y: 70.75), controlPoint1: CGPoint(x: 43.67, y: 62.97), controlPoint2: CGPoint(x: 36.94, y: 67.72))
+        shape.addCurve(to: CGPoint(x: 19.15, y: 74.84), controlPoint1: CGPoint(x: 26.54, y: 73.02), controlPoint2: CGPoint(x: 22.78, y: 74.31))
+        shape.addCurve(to: CGPoint(x: 15.57, y: 74.98), controlPoint1: CGPoint(x: 18.34, y: 74.95), controlPoint2: CGPoint(x: 16.11, y: 75.04))
+        shape.close()
+        shape.move(to: CGPoint(x: 16.1, y: 61.66))
+        shape.addCurve(to: CGPoint(x: 22.81, y: 59.85), controlPoint1: CGPoint(x: 17.87, y: 61.51), controlPoint2: CGPoint(x: 20.43, y: 60.82))
+        shape.addCurve(to: CGPoint(x: 53.8, y: 33.15), controlPoint1: CGPoint(x: 33.34, y: 55.57), controlPoint2: CGPoint(x: 45.85, y: 44.79))
+        shape.addCurve(to: CGPoint(x: 58, y: 25.95), controlPoint1: CGPoint(x: 55.51, y: 30.65), controlPoint2: CGPoint(x: 56.76, y: 28.51))
+        shape.addCurve(to: CGPoint(x: 60.91, y: 16.66), controlPoint1: CGPoint(x: 59.71, y: 22.45), controlPoint2: CGPoint(x: 60.67, y: 19.37))
+        shape.addCurve(to: CGPoint(x: 60.94, y: 15.86), controlPoint1: CGPoint(x: 60.95, y: 16.24), controlPoint2: CGPoint(x: 60.96, y: 15.88))
+        shape.addCurve(to: CGPoint(x: 58.21, y: 16.2), controlPoint1: CGPoint(x: 60.87, y: 15.79), controlPoint2: CGPoint(x: 59.11, y: 16.01))
+        shape.addCurve(to: CGPoint(x: 40, y: 25.76), controlPoint1: CGPoint(x: 52.99, y: 17.28), controlPoint2: CGPoint(x: 46.57, y: 20.65))
+        shape.addCurve(to: CGPoint(x: 32.01, y: 32.9), controlPoint1: CGPoint(x: 37.27, y: 27.89), controlPoint2: CGPoint(x: 34.86, y: 30.05))
+        shape.addCurve(to: CGPoint(x: 21.85, y: 45.19), controlPoint1: CGPoint(x: 27.75, y: 37.19), controlPoint2: CGPoint(x: 24.74, y: 40.83))
+        shape.addCurve(to: CGPoint(x: 15.22, y: 61.02), controlPoint1: CGPoint(x: 17.88, y: 51.19), controlPoint2: CGPoint(x: 15.63, y: 56.56))
+        shape.addCurve(to: CGPoint(x: 15.16, y: 61.71), controlPoint1: CGPoint(x: 15.19, y: 61.38), controlPoint2: CGPoint(x: 15.16, y: 61.69))
+        shape.addCurve(to: CGPoint(x: 15.44, y: 61.73), controlPoint1: CGPoint(x: 15.16, y: 61.74), controlPoint2: CGPoint(x: 15.28, y: 61.74))
+        shape.addCurve(to: CGPoint(x: 16.1, y: 61.66), controlPoint1: CGPoint(x: 15.59, y: 61.71), controlPoint2: CGPoint(x: 15.89, y: 61.68))
+        shape.close()
+        
+        return shape.cgPath
+    }()
+}
