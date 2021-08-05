@@ -241,12 +241,12 @@ class MKItemViewController: UIViewController {
             label.trailingAnchor.constraint(equalTo: textView.trailingAnchor, constant: -40),
             label.topAnchor.constraint(equalTo: textView.topAnchor, constant: 30)
         ])
-//
-//        textView.textColor = .white
-//        textView.font = UIFont(name: "Rockwell-Regular", size: 24)
-//        textView.numberOfLines = 0
+        //
+        //        textView.textColor = .white
+        //        textView.font = UIFont(name: "Rockwell-Regular", size: 24)
+        //        textView.numberOfLines = 0
         
-//        textView.text = self.text!
+        //        textView.text = self.text!
         
         self.contentView.addSubview(textView)
         
@@ -363,10 +363,17 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        if UIDevice.current.orientation.isLandscape {
-            self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
-        } else {
-            print("portrait")
+        
+        let sizeClass = UITraitCollection()
+
+        if self.typeText == "Gallery" {
+            if UIDevice.current.orientation.isLandscape {
+                if sizeClass.horizontalSizeClass == .unspecified {
+                    self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
+                }
+            } else {
+                print("portrait")
+            }
         }
     }
     

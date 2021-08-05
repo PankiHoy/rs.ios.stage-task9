@@ -14,7 +14,6 @@
 		FA0E9CBB26BB3959001DE8B5 /* s6-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBA26BB3959001DE8B5 /* s6-text.txt */; };
 		FA0E9CBD26BB3966001DE8B5 /* s6-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBC26BB3966001DE8B5 /* s6-title.txt */; };
 		FA0E9CBF26BB397C001DE8B5 /* s5-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */; };
-		FA0E9CC126BB3989001DE8B5 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA0E9CC026BB3989001DE8B5 /* s5-title.txt */; };
 		FA26BB6126B59C8400FD405C /* MKItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA26BB6026B59C8400FD405C /* MKItemViewController.swift */; };
 		FAD1000526B5F19800FA3653 /* MKDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000426B5F19800FA3653 /* MKDrawingView.swift */; };
 		FAD1000726B5F28C00FA3653 /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */; };
@@ -32,6 +31,7 @@
 		FAD1002826B726A500FA3653 /* story-1-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1001B26B726A500FA3653 /* story-1-path.swift */; };
 		FAD1002926B726A500FA3653 /* s1-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAD1001C26B726A500FA3653 /* s1-title.txt */; };
 		FAD1002B26B9C2CB00FA3653 /* MKGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1002A26B9C2CB00FA3653 /* MKGalleryView.swift */; };
+		FAD647ED26BB66890066386C /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAD647EC26BB66890066386C /* s5-title.txt */; };
 		FAEEED2926B493390035C49B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEED2826B493390035C49B /* AppDelegate.swift */; };
 		FAEEED2B26B493390035C49B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEED2A26B493390035C49B /* SceneDelegate.swift */; };
 		FAEEED2F26B4933E0035C49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEEED2E26B4933E0035C49B /* Assets.xcassets */; };
@@ -49,7 +49,6 @@
 		FA0E9CBA26BB3959001DE8B5 /* s6-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s6-text.txt"; sourceTree = "<group>"; };
 		FA0E9CBC26BB3966001DE8B5 /* s6-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s6-title.txt"; sourceTree = "<group>"; };
 		FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s5-text.txt"; sourceTree = "<group>"; };
-		FA0E9CC026BB3989001DE8B5 /* s5-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s5-title.txt"; path = "../../../../../../Desktop/s5-title.txt"; sourceTree = "<group>"; };
 		FA26BB6026B59C8400FD405C /* MKItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKItemViewController.swift; sourceTree = "<group>"; };
 		FAD1000426B5F19800FA3653 /* MKDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKDrawingView.swift; sourceTree = "<group>"; };
 		FAD1000626B5F28C00FA3653 /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		FAD1001B26B726A500FA3653 /* story-1-path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "story-1-path.swift"; sourceTree = "<group>"; };
 		FAD1001C26B726A500FA3653 /* s1-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s1-title.txt"; sourceTree = "<group>"; };
 		FAD1002A26B9C2CB00FA3653 /* MKGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKGalleryView.swift; sourceTree = "<group>"; };
+		FAD647EC26BB66890066386C /* s5-title.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
 		FAEEED2526B493390035C49B /* rs.ios.stage.task-9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rs.ios.stage.task-9.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEEED2826B493390035C49B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAEEED2A26B493390035C49B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			children = (
 				FA0E9CB626BB37DC001DE8B5 /* story-5-path.swift */,
 				FA0E9CBE26BB397C001DE8B5 /* s5-text.txt */,
-				FA0E9CC026BB3989001DE8B5 /* s5-title.txt */,
+				FAD647EC26BB66890066386C /* s5-title.txt */,
 			);
 			path = "story-5";
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 				FAD1002126B726A500FA3653 /* s4-title.txt in Resources */,
 				FAD1002526B726A500FA3653 /* s2-text.txt in Resources */,
 				FAD1002426B726A500FA3653 /* s2-title.txt in Resources */,
-				FA0E9CC126BB3989001DE8B5 /* s5-title.txt in Resources */,
+				FAD647ED26BB66890066386C /* s5-title.txt in Resources */,
 				FA0E9CBF26BB397C001DE8B5 /* s5-text.txt in Resources */,
 				FA0E9CBB26BB3959001DE8B5 /* s6-text.txt in Resources */,
 				FAEEED2F26B4933E0035C49B /* Assets.xcassets in Resources */,
