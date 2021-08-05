@@ -77,8 +77,8 @@ struct FillingData {
                          title: "Koresha",
                          images: .init(base: "koresha", count: 4))),
         .gallery(Gallery(coverImage: .init("masha-0"),
-                         title: "Masha",
-                         images: .init(base: "masha", count: 3)))
+                         title: "Azula",
+                         images: .init(base: "masha", count: 4)))
     ]
 }
 

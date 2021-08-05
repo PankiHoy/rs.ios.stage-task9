@@ -362,6 +362,7 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
             self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
         } else {
