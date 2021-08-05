@@ -368,7 +368,7 @@ extension MKItemViewController: UICollectionViewDataSource, UICollectionViewDele
 
         if self.typeText == "Gallery" {
             if UIDevice.current.orientation.isLandscape {
-                if sizeClass.horizontalSizeClass == .unspecified {
+                if sizeClass.horizontalSizeClass == .unspecified || sizeClass.horizontalSizeClass == .regular {
                     self.galleryCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(520 * round(((Double(self.images!.count))/2.0)))).isActive = true
                 }
             } else {
